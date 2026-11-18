@@ -634,6 +634,7 @@ ACT.treeTog=function(d){S.tree[d.g]=S.tree[d.g]===false;render()};
 function subnav(){
 var r=S.route,items;
 if(isStaff())items=staffItems();
+else if(!isPart())items=[['home','grid',t('الرئيسية','Home')]];
 else items=[['home','grid',t('الرئيسية','Home')],['content','file',t('مركز المعرفة','Knowledge Hub')],['suggest','bulb',t('أضف مقترحك','Add suggestion')],['mine','award',t('سجل نما التفاعلي','My NAAMA record')]];
 return '<div class="subnav"><div class="wrap" role="tablist">'+items.map(function(x){var on=r===x[0]||(x[0]==='home'&&(r==='ws'||r==='onsite'))||(x[0]==='content'&&r==='citem')||(x[0]==='mine'&&r==='survey');return '<a class="'+(on?'on':'')+'" data-a="go" data-r="'+x[0]+'">'+ic(x[1],'sm')+x[2]+'</a>'}).join('')+'</div></div>'}
 function footer(){
